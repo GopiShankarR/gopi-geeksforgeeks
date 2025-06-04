@@ -1,0 +1,15 @@
+from typing import List
+
+
+class Solution:
+    def minimumInteger(self, N : int, A : List[int]) -> int:
+        # code here
+        length = len(A)
+        sum = 0
+        minElem = sys.maxsize
+        for i in A:
+            sum += i
+        for i in range(0, length):
+            if sum <= A[i] * N:
+                minElem = min(A[i], minElem)
+        return minElem
