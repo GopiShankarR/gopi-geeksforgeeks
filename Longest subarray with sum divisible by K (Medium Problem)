@@ -1,0 +1,18 @@
+#User function Template for python3
+class Solution:
+	def longestSubarrayDivK(self, arr, k):
+		#Complete the function
+		sum = 0
+		mod = 0
+		length, maxLength = 0, 0
+		n = len(arr)
+		hashMap = {0: -1}
+		for i in range(n):
+		    sum += arr[i]
+		    mod = sum % k
+		    if mod in hashMap:
+		      length = i - hashMap[mod]
+		      maxLength = max(length, maxLength)
+		    if mod not in hashMap:
+		        hashMap[mod] = i
+		return maxLength
