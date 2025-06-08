@@ -1,0 +1,21 @@
+#User function Template for python3
+
+class Solution:
+    
+    #Function to check whether there is a subarray present with 0-sum or not.
+    def subArrayExists(self,arr):
+        ##Your code here
+        #Return true or false
+        k = 0
+        diff = 0
+        sum = 0
+        n = len(arr)
+        hashMap = {0: -1}
+        for i in range(n):
+            sum += arr[i]
+            diff = sum - k
+            if diff in hashMap:
+                return True
+            if sum not in hashMap:
+                hashMap[sum] = i
+        return False
