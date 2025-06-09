@@ -1,0 +1,18 @@
+class Solution:
+    def isBalanced(self, s):
+        # code here
+        hashMap = {
+            ')': '(',
+            ']': '[',
+            '}': '{'
+        }
+        st = []
+        for c in s:
+            if c in hashMap:
+                if st and hashMap[c] == st[-1]:
+                    st.pop()
+                else:
+                    return False
+            else:
+                st.append(c)
+        return True if not st else False
