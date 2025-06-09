@@ -1,0 +1,10 @@
+class Solution:
+    def reverse(self, s: str) -> str:
+        #code here 
+        st = []
+        result = ""
+        for c in s:
+            st.append(c)
+        while st and st is not None:
+            result += st.pop()
+        return result
