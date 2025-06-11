@@ -1,0 +1,19 @@
+class Solution:
+    def fractionalknapsack(self, val, wt, capacity):
+        #code here
+        ratio = []
+        bagCapacity, rem, toBeFilled, finalVal = 0, 0, 0, 0
+        # n = len(val)
+        for v, w in zip(val, wt):
+            ratio.append((v / w, v, w))
+        ratio.sort(reverse=True)
+        
+        for r, v, w in ratio:
+            bagCapacity += w
+            if bagCapacity > capacity:
+                rem = bagCapacity - capacity
+                toBeFilled = w - rem
+                v = toBeFilled * r
+                bagCapacity -= rem
+            finalVal += v
+        return finalVal
