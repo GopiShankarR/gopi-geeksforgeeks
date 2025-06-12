@@ -1,0 +1,14 @@
+class Solution:
+    def activitySelection(self, start, finish):
+        #code here
+        count = 1
+        combined = []
+        for s, f in zip(start, finish):
+            combined.append((s, f))
+        combined.sort(key=lambda x: (x[1], x[0]))
+        last_finish = combined[0][1]
+        for i in range(1, len(combined)):
+            if combined[i][0] > last_finish:
+                count += 1
+                last_finish = combined[i][1]
+        return count
