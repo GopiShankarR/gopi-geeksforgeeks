@@ -1,0 +1,18 @@
+#User function Template for python3
+
+class Solution:
+    #Function to return the largest possible number of n digits
+    #with sum equal to given sum.
+    def largestNum(self,n,s):
+        
+        # code here
+        if s > 9 * n:
+            return -1
+            
+        result = ""
+        for i in range(n):
+            digit = min(9, s)
+            result += str(digit)
+            s -= digit
+            
+        return result
