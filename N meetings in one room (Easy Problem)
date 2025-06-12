@@ -1,0 +1,23 @@
+#User function Template for python3
+
+class Solution:
+    
+    #Function to find the maximum number of meetings that can
+    #be performed in a meeting room.
+    def maximumMeetings(self,start,end):
+        # code here
+        combined = []
+        count = 1
+        maxLength, length = float('-inf'), 0
+        for s, e in zip(start, end):
+            combined.append((s, e))
+        
+        combined.sort(key=lambda x: (x[1], x[0]))
+        
+        lastfinish = combined[0][1]
+        
+        for i in range(1, len(combined)):
+            if combined[i][0] > lastfinish:
+                count += 1
+                lastfinish = combined[i][1]
+        return count
