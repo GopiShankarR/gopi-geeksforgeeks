@@ -1,0 +1,12 @@
+#User function Template for python3
+
+class Solution:
+    def minPartition(self, N):
+        # code here
+        currency = [2000, 500, 200, 100, 50, 20, 10, 5, 2, 1]
+        result = []
+        for c in currency:
+            while N >= c:
+                result.append(c)
+                N -= c
+        return result
