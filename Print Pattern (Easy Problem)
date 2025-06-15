@@ -1,0 +1,16 @@
+#User function Template for python3
+
+class Solution:
+    def pattern(self, N):
+        # code here
+        result = []
+        
+        def recurse(curr):
+            result.append(curr)
+            if curr <= 0:
+                return
+            recurse(curr - 5)
+            result.append(curr)
+            
+        recurse(N)
+        return result
