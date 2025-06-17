@@ -1,0 +1,7 @@
+# User function Template for python3
+
+class Solution:
+        
+    def  towerOfHanoi(self, n, fromm, to, aux):
+        # Your code here
+        return 2 ** n - 1
