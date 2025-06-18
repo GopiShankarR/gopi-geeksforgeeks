@@ -1,0 +1,27 @@
+#User function Template for python3
+
+class Solution:
+    
+    #Complete this function
+    
+    #Function to return the name of candidate that received maximum votes.
+    def winner(self,arr,n):
+        # Your code here
+        # return the name of the winning candidate and the votes he recieved
+        count, maxCount = 0, float('-inf')
+        currName = ""
+        hashMap = {}
+        for s in arr:
+            if s not in hashMap:
+                hashMap[s] = 1
+            else:
+                hashMap[s] += 1
+        
+        for name, count in hashMap.items():
+            if count > maxCount:
+                maxCount = count
+                currName = name
+            elif count == maxCount:
+                currName = min(name, currName)
+            
+        return [currName, str(maxCount)]
