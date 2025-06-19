@@ -1,0 +1,28 @@
+#User function Template for python3
+
+
+class Solution:
+
+    def anagrams(self, arr):
+        '''
+        words: list of word
+        n:      no of words
+        return : list of group of anagram {list will be sorted in driver code (not word in grp)}
+        '''
+
+        #code here
+        n = len(arr)
+        hashMap = {}
+        result = []
+        for i in range(n):
+            s = arr[i]
+            sortedString = ''.join(sorted(s))
+            if sortedString not in hashMap:
+                hashMap[sortedString] = []
+            
+            hashMap[sortedString].append(arr[i])
+        
+        for key, value in hashMap.items():
+            result.append(value)
+
+        return result
