@@ -1,0 +1,9 @@
+#User function Template for python3
+class Solution:
+
+	def matchPairs(self, n, nuts, bolts):
+		# code here
+		orderToBeFollowed = {'!': 0, '#': 1, '$': 2, '%': 3, '&': 4, '*': 5, '?': 6, '@': 7, '^': 8}
+		nuts.sort(key=lambda x: orderToBeFollowed[x])
+		bolts.sort(key=lambda x: orderToBeFollowed[x])
+		return [nuts, bolts]
