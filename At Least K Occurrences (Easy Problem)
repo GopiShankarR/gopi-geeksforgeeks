@@ -1,0 +1,12 @@
+#User function Template for python3
+
+
+class Solution:
+    def firstElementKTime(self, arr,k):
+        # code here
+        hashMap = {}
+        for i in arr:
+            hashMap[i] = hashMap.get(i, 0) + 1
+            if hashMap.get(i, 0) == k:
+                return i
+        return -1
