@@ -1,0 +1,14 @@
+#User function Template for python3
+
+class Solution:
+    def firstNonRepeating(self, arr): 
+        # Complete the function
+        hashMap = {}
+        for i in arr:
+            hashMap[i] = hashMap.get(i, 0) + 1
+        
+        for values, count in hashMap.items():
+            if count == 1:
+                return values
+        
+        return 0
