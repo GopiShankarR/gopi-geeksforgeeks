@@ -1,0 +1,17 @@
+#User function Template for python3
+
+class Solution:
+	def TotalPairs(self, nums, k):
+		# Code here
+		count = 0
+		hashSet = set(nums)
+		if k == 0:
+		    for num in hashSet:
+		        if nums.count(num) > 1:
+		            count += 1
+		else:
+		    for num in hashSet:
+		        if num + k in hashSet:
+		            count += 1
+		
+		return count
