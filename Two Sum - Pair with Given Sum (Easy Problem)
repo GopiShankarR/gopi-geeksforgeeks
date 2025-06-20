@@ -1,0 +1,13 @@
+class Solution:
+	def twoSum(self, arr, target):
+		# code here
+	    hashMap = {}
+	    n = len(arr)
+	    
+	    for num in arr:
+	        temp = target - num
+	        if temp in hashMap:
+	            return True
+	        hashMap[num] = temp
+	        
+	    return False
