@@ -1,0 +1,26 @@
+#User function Template for python3
+
+class Solution:
+    def findPermutation(self, s):
+        # Code here
+        result = set()
+        n = len(s)
+        v = [0] * n
+        self.rec(n, v, s, "", result)
+        return list(result)
+        
+    def rec(self, n, v, s, currStr, result):
+        if len(currStr) == len(s):
+            result.add(currStr)
+            return
+        
+        for i in range(n):
+            if v[i] == 1:
+                continue
+            currStr += s[i]
+            v[i] = 1
+            # print(v , " " , currStr)
+            self.rec(n, v, s, currStr, result)
+            v[i] = 0
+            currStr = currStr[:-1]
+        return
