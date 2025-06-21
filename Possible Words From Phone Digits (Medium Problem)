@@ -1,0 +1,30 @@
+class Solution:
+    
+    hashMap = {
+        2: "abc",
+        3: "def",
+        4: "ghi",
+        5: "jkl",
+        6: "mno",
+        7: "pqrs",
+        8: "tuv",
+        9: "wxyz"
+    }
+    
+    def possibleWords(self, numbers):
+        #code here
+        result = []
+        self.rec(0, numbers, "", result)
+        return result
+        
+    def rec(self, index, numbers, currStr, result):
+        if index == len(numbers):
+            result.append(currStr)
+            return
+        
+        chars = self.hashMap[numbers[index]]
+        
+        for char in chars:
+            self.rec(index + 1, numbers, currStr + char, result)
+    
+        return
