@@ -1,0 +1,29 @@
+#User function Template for python3
+
+class Solution:
+    
+    # Function to find all combinations of elements
+    # in array arr that sum to target.
+    def combinationSum(self, arr, target):
+        # code here
+        result = []
+        arr.sort()
+        n = len(arr)
+        self.rec(arr, n, 0, target, [], result, 0)
+        return result
+    
+    def rec(self, arr, n, currSum, target, currArr, result, start):
+        if currSum == target:
+            result.append(currArr.copy())
+            return
+        
+        for i in range(start, n):
+            currSum += arr[i]
+            if currSum > target:
+                break
+            currArr.append(arr[i])
+            self.rec(arr, n, currSum, target, currArr, result, i)
+            currSum -= arr[i]
+            currArr.pop()
+            
+        return 
