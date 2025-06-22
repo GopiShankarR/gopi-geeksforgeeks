@@ -1,0 +1,30 @@
+#User function Template for python3
+
+class Solution:
+    
+    # Function to find all combinations of elements
+    # in array arr that sum to target.
+    def uniqueCombinations(self, arr, target):
+        # code here
+        result = set()
+        n = len(arr)
+        arr.sort()
+        self.rec(arr, target, n, 0, [], result, 0)
+        return [list(t) for t in result]
+        
+    def rec(self, arr, target, n, currSum, currArr, result, start):
+        if currSum == target:
+            result.add(tuple(list(currArr)))
+            return
+        
+        for i in range(start, n):
+            currSum += arr[i]
+            if currSum > target:
+                break
+            
+            currArr.append(arr[i])
+            self.rec(arr, target, n, currSum, currArr, result, i + 1)
+            currSum -= arr[i]
+            currArr.pop()
+        
+        return
