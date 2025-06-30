@@ -1,0 +1,11 @@
+class Solution:
+    def getSecondLargest(self, arr):
+        # Code Here
+        largest = max(arr)
+        n = len(arr)
+        secondLargest = -1
+        for i in range(n):
+            if arr[i] < largest:
+                secondLargest = max(secondLargest, arr[i])
+        
+        return secondLargest
