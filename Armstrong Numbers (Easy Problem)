@@ -1,0 +1,15 @@
+#User function Template for python3
+
+class Solution:
+    def armstrongNumber (self, n):
+        # code here 
+        strNumber = str(n)
+        length = len(strNumber)
+        strNumberSum = 0
+        for i in range(length):
+            strNumberSum += int(strNumber[i]) ** 3
+        
+        if strNumberSum == n:
+            return True
+        
+        return False
