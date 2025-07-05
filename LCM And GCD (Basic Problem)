@@ -1,0 +1,12 @@
+class Solution:
+    def lcmAndGcd(self, a : int, b : int) -> List[int]:
+        # code here
+        lcmVal, gcdVal = 0, 0
+        x, y = a, b
+        while y != 0:
+            x, y = y, x % y
+        gcdVal = x
+        
+        lcmVal = (a // gcdVal) * b
+        
+        return [lcmVal, gcdVal]
