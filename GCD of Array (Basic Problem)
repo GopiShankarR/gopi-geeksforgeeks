@@ -1,0 +1,15 @@
+#User function Template for python3
+
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+    
+class Solution:
+    def gcd(self, n, arr):
+        # code here 
+        resultNum = 0
+        for i in range(0, len(arr)):
+            resultNum = gcd(resultNum, arr[i])
+            
+        return resultNum
