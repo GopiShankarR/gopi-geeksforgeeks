@@ -1,0 +1,14 @@
+import math
+
+class Solution:
+    def sieve(self, n):
+        # code here 
+        isPrime = [True] * (n + 1)
+        isPrime[0] = isPrime[1] = False
+        
+        for i in range(2, int(math.sqrt(n)) + 1):
+            if isPrime[i]:
+                for m in range(i * i, n + 1, i):
+                    isPrime[m] = False
+        
+        return [i for i in range(2, n + 1) if isPrime[i]]
