@@ -1,0 +1,19 @@
+import math
+
+class Solution:
+    def isPerfect(self, n):
+        # code here
+        totalSum = 1
+        sumArr = []
+        
+        if n == 1:
+            return False
+        
+        for i in range(2, math.isqrt(n) + 1):
+            if n % i == 0:
+                pair = n // i
+                totalSum += i
+                if pair != i and pair != n:
+                    totalSum += pair
+        
+        return totalSum == n
