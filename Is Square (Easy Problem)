@@ -1,0 +1,12 @@
+class Solution {
+  public:
+    string isSquare(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4) {
+        // code here
+        if(x1 == x2 == x3 == x4) {
+            return "No";
+        } else if(abs(abs(x1) - abs(x2)) == abs(abs(x3) - abs(x4)) && abs(abs(y1) - abs(y2)) == abs(abs(y3) - abs(y4))) {
+            return "Yes";
+        }
+        return "No";
+    }
+};
