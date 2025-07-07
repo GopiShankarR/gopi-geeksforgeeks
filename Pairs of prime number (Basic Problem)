@@ -1,0 +1,20 @@
+class Solution:
+	def prime_pairs(self, n):
+		# Code here
+		pairs = [True] * (n + 1)
+		pairs[0] = pairs[1] = False
+		
+		for i in range(2, n + 1):
+		    if pairs[i]:
+		        for j in range(i * i, n + 1, i):
+		            pairs[j] = False
+		
+		result = []
+		for i in range(2, n + 1):
+		    if pairs[i]:
+		        for j in range(2, n // i + 1):
+		            if pairs[j]:
+		                result.append(i)
+		                result.append(j)
+		
+		return result
