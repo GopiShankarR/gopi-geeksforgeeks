@@ -1,0 +1,9 @@
+#User function Template for python3
+
+class Solution:
+    def getAngle(self, h , m):
+        # code here
+        hourAngle = (h * 60 + m) * 0.5
+        minAngle = m * 6
+        diff = abs(hourAngle - minAngle)
+        return min(int(diff), int(360 - diff))
