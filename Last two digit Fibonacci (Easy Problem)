@@ -1,0 +1,16 @@
+#User function Template for python3
+
+class Solution:
+    def fibonacciDigits(self,N):
+        #code here
+        a, b = 0, 1
+        c = 1
+        
+        while N > 300:
+            N = N % 300
+        
+        while c <= N:
+            c += 1
+            a, b = (a + b) % 100, a % 100
+            
+        return int(a % 100)
