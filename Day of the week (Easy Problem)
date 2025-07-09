@@ -1,0 +1,6 @@
+import calendar
+
+class Solution:
+    def getDayOfWeek(self, d, m, y):
+        # code here 
+        return calendar.day_name[calendar.weekday(y, m, d)]
