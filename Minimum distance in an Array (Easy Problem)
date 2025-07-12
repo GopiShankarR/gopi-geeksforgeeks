@@ -1,0 +1,13 @@
+class Solution:
+    def minDist(self, arr, x, y):
+        minDiff = float('inf')
+        lastVal = None
+        lastIndex = -1
+        for i, val in enumerate(arr):
+            if val == x or val == y:
+                if lastIndex != -1 and val != lastVal:
+                    minDiff = min(minDiff, i - lastIndex)
+                lastIndex = i
+                lastVal = val
+        
+        return minDiff if minDiff != float('inf') else -1
