@@ -1,0 +1,24 @@
+#User function Template for python3
+
+class Solution:
+    def productExceptSelf(self, arr):
+        #code here
+        n = len(arr)
+        result = []
+        prod = 1
+        for i in arr:
+            if i != 0:
+                prod *= i
+        
+        if arr.count(0) > 1:
+            return [0] * n
+        elif arr.count(0) == 1:
+            idx = arr.index(0)
+            arr.remove(0)
+            result = [0] * (n - 1)
+            result.insert(idx, prod)
+        else:
+            for i in arr:
+                result.append(prod // i)
+        
+        return result
