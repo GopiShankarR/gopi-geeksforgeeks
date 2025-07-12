@@ -1,0 +1,16 @@
+class Solution:
+    def findDuplicates(self, arr):
+        # code here
+        hashMap = {}
+        result = []
+        for i in arr:
+            if i not in hashMap:
+                hashMap[i] = 1
+            else:
+                hashMap[i] += 1
+        
+        for val, count in hashMap.items():
+            if count > 1:
+                result.append(val)
+        
+        return result
