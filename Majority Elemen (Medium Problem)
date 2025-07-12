@@ -1,0 +1,16 @@
+class Solution:
+    def majorityElement(self, arr):
+        #code here
+        n = len(arr)
+        hashMap = {}
+        for i in arr:
+            if i not in hashMap:
+                hashMap[i] = 1
+            else:
+                hashMap[i] += 1
+        
+        for val, c in hashMap.items():
+            if c > n // 2:
+                return val
+                
+        return -1
