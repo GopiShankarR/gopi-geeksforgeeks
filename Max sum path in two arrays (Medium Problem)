@@ -1,0 +1,35 @@
+#Your task is to complete this function
+#Function should return an integer denoting the required answer
+class Solution:
+    def maxPathSum(self, arr1, arr2):
+        # Code here
+        i, j = 0, 0
+        len1 = len(arr1)
+        len2 = len(arr2)
+        totSum1 = 0
+        totSum2 = 0
+        result = 0
+        
+        while i < len1 and j < len2:
+            if arr1[i] < arr2[j]:
+                totSum1 += arr1[i]
+                i += 1
+            elif arr2[j] < arr1[i]:
+                totSum2 += arr2[j]
+                j += 1
+            else:
+                result += max(totSum1, totSum2) + arr1[i]
+                totSum1 = 0
+                totSum2 = 0
+                i += 1
+                j += 1
+            
+        while i < len1:
+            totSum1 += arr1[i]
+            i += 1
+        while j < len2:
+            totSum2 += arr2[j]
+            j += 1
+        
+        result += max(totSum1, totSum2)
+        return result
