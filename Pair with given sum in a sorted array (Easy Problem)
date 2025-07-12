@@ -1,0 +1,15 @@
+#User function Template for python3
+from collections import defaultdict
+
+class Solution:
+    def countPairs (self, arr, target) : 
+        #Complete the function
+        count = 0
+        hashMap = defaultdict(int)
+        
+        for i in arr:
+            complement = target - i
+            count += hashMap[complement]
+            hashMap[i] += 1
+        
+        return count
