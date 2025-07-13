@@ -1,0 +1,14 @@
+class Solution:
+
+    def findMinDiff(self, arr,M):
+        i, j = 0, M - 1
+        arr.sort()
+        n = len(arr)
+        minEle = float('inf')
+        
+        while j < n:
+            minEle = min(minEle, arr[j] - arr[i])
+            i += 1
+            j += 1
+        
+        return minEle
