@@ -1,0 +1,35 @@
+'''
+class Node:
+	def __init__(self, data):
+		self.data = data
+		self.next = None
+		self.prev = None
+
+'''
+
+class Solution:
+    def addNode(self, head, p, x):
+        # Code here
+        curr = head
+        newNode = Node(x)
+        k = 0
+        while curr != None and k != p:
+            k += 1
+            curr = curr.next
+        
+        if curr.next == None:
+            curr.next = newNode
+            newNode.prev = curr
+            newNode.next = None
+        elif curr == head:
+            newNode.next = head
+            curr.prev = newNode
+            head = newNode
+        else:
+            temp = curr.next
+            curr.next = newNode
+            newNode.prev = curr
+            newNode.next = temp
+            
+        return head
+            
