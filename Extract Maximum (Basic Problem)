@@ -1,0 +1,21 @@
+#User function Template for python3
+
+class Solution:
+    def extractMaximum(self,S): 
+        # code here
+        i = 0
+        result = ''
+        arr = []
+        n = len(S)
+        
+        while i < n:
+            while i < n and ord(S[i]) >= 48 and ord(S[i]) <= 57:
+                result += S[i]
+                i += 1
+            
+            if result:
+                arr.append(int(result))
+                result = ''
+            i += 1
+        
+        return max(arr) if arr else -1
