@@ -1,0 +1,22 @@
+#User function Template for python3
+
+class Solution:
+    def extractMaximum(self,S): 
+        # code here
+        i = 0
+        result = ''
+        n = len(S)
+        maxVal = -1
+        
+        for ch in S:
+            if ch.isdigit():
+                result += ch
+            else:
+                if result:
+                    maxVal = max(maxVal, int(result))
+                    result = ''
+            
+        if result:
+            maxVal = max(maxVal, int(result))
+        
+        return maxVal
