@@ -1,0 +1,12 @@
+#User function Template for python3
+class Solution:
+    def ReverseSort(self, s): 
+        # code here
+        strings = list(s)
+        result = ''
+        sortedString = sorted(strings)
+        
+        for i in range(len(sortedString) - 1, -1, -1):
+            result += sortedString[i]
+        
+        return result
