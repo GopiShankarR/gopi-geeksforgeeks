@@ -1,0 +1,23 @@
+#User function Template for python3
+class Solution:
+    def merge(self, S1, S2):
+        # code here
+        result = ''
+        m = len(S1)
+        n = len(S2)
+        i, j = 0, 0
+        
+        while i < m and j < n:
+            result += S1[i] + S2[j]
+            i += 1
+            j += 1
+        
+        while i != m:
+            result += S1[i]
+            i += 1
+        
+        while j != n:
+            result += S2[j]
+            j += 1
+        
+        return result
