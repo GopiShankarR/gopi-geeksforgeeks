@@ -1,0 +1,14 @@
+class Solution:
+    def areAnagrams(self, s1, s2):
+       # code here
+        s1List = list(s1)
+        sortedS1List = sorted(s1List)
+        s2List = list(s2)
+        sortedS2List = sorted(s2List)
+        actualS1 = "".join(sortedS1List)
+        actualS2 = "".join(sortedS2List)
+        
+        if actualS1 == actualS2:
+            return True
+        
+        return False
