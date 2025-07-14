@@ -1,0 +1,32 @@
+class Solution:
+    def reverseWords(self, s):
+        # code here
+        n = len(s)
+        arr = []
+        result = ''
+        
+        for ch in s:
+            if ch == " ":
+                if result:
+                    arr.append(result)
+                    result = ''
+                else:
+                    continue
+            else:
+                # print(ch)
+                result += ch
+        
+        if result:
+            arr.append(result)
+            
+        arr.reverse()
+        # print(arr)
+        result = ''
+        for i in range(len(arr)):
+            result += arr[i]
+            if i == len(arr) - 1:
+                break
+            result += ' '
+            
+        
+        return result
