@@ -1,0 +1,18 @@
+from collections import Counter
+
+class Solution:
+    def isPossible(self, S):
+
+        counter = Counter(S)
+        n = len(S)
+        count = 0
+        # existing = False
+        
+        for key, val in counter.items():
+            if val % 2 != 0:
+                count += 1
+        
+        if count == 1 or count == 0:
+            return 1
+        
+        return 0
