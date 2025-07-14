@@ -1,0 +1,31 @@
+class Solution:
+    def delete_node(self, head, x):
+        #code here
+        k = 0
+        currNode = head
+        
+        if x == 1:
+            head = head.next
+            head.prev = None
+            del currNode
+            return head
+
+        prevNode = head
+        
+        while currNode.next != None and k != x - 1:
+            k += 1
+            prevNode = currNode
+            currNode = currNode.next
+        
+        if currNode.next == None:
+            prevNode.next = None
+            currNode.prev = None
+            del currNode
+        else:
+            prevNode.next = currNode.next
+            currNode.prev = None
+            currNode.next.prev = prevNode
+            currNode.next = None
+            del currNode
+        
+        return head
