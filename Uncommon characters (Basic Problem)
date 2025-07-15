@@ -1,0 +1,19 @@
+class Solution:
+    def uncommonChars(self, s1, s2):
+        #code here
+        
+        hashMap1 = [0] * 26
+        hashMap2 = [0] * 26
+        
+        for ch in s1:
+            hashMap1[ord(ch) - ord('a')] = 1
+        
+        for ch in s2:
+            hashMap2[ord(ch) - ord('a')] = 1
+        
+        result = []
+        for i in range(26):
+            if hashMap1[i] != hashMap2[i]:
+                result.append(chr(i + ord('a')))
+        
+        return ''.join(result)
