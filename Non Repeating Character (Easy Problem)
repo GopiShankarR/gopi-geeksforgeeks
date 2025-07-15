@@ -1,0 +1,15 @@
+class Solution:
+    def nonRepeatingChar(self,s):
+        #code here
+        hashMap = {}
+        for ch in s:
+            if ch not in hashMap:
+                hashMap[ch] = 1
+            else:
+                hashMap[ch] += 1
+        
+        for key, val in hashMap.items():
+            if val == 1:
+                return key
+        
+        return '$'
