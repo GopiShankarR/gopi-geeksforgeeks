@@ -1,0 +1,30 @@
+#User function template for Python 3
+
+class Solution:
+    def areKAnagrams(self, s1, s2, k):
+        # code here
+        hashMap1 = {}
+        hashMap2 = {}
+        if len(s1) != len(s2):
+            return False
+        diff = 0
+        
+        for ch in s1:
+            if ch not in hashMap1:
+                hashMap1[ch] = 1
+            else:
+                hashMap1[ch] += 1
+        
+        for ch in s2:
+            if ch not in hashMap2:
+                hashMap2[ch] = 1
+            else:
+                hashMap2[ch] += 1
+        
+        for ch in hashMap1:
+            if hashMap1[ch] > hashMap2.get(ch, 0):
+                diff += hashMap1[ch] - hashMap2.get(ch, 0)
+                if diff > k:
+                    return False
+    
+        return diff <= k
