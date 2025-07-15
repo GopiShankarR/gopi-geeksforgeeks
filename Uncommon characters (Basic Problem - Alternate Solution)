@@ -1,0 +1,17 @@
+class Solution:
+    def uncommonChars(self, s1, s2):
+        #code here
+        
+        result = ''
+        for ch in s1:
+            if ch not in s2 and ch not in result:
+                result += ch
+        
+        for ch in s2:
+            if ch not in s1 and ch not in result:
+                result += ch
+        
+        resultlist = list(result)
+        sortedList = sorted(resultlist)
+        
+        return ''.join(sortedList)
