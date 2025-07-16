@@ -1,0 +1,22 @@
+#User function Template for python3
+
+class Solution:
+    def longestUniqueSubstr(self, s):
+        # code here
+        n = len(s)
+        maxLength = 0
+        seen = [-1] * 128
+        i = 0
+        
+        for j in range(n):
+            ch = s[j]
+            asciiInd = ord(ch)
+            
+            if seen[asciiInd] >= i:
+                i = seen[asciiInd] + 1
+            
+            seen[asciiInd] = j
+            
+            maxLength = max(maxLength, j - i + 1)
+        
+        return maxLength
