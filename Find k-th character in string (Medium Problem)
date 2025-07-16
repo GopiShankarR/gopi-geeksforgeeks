@@ -1,0 +1,19 @@
+#User function Template for python3
+class Solution:
+	def kthCharacter(self, m, n, k):
+		# code here
+		binarystring = ''
+		while m > 0:
+		    binarystring = str(m % 2) + binarystring
+		    m //= 2
+		    
+        if binarystring == '':
+            binarystring = '0'
+		   
+		for _ in range(n):
+		    modifiedstring = ''
+		    for ch in binarystring:
+		        modifiedstring += '10' if ch == '1' else '01'
+		    binarystring = modifiedstring
+		
+		return binarystring[k - 1]
