@@ -1,0 +1,21 @@
+int isPossible(string S) {
+    // your code here
+    unordered_map<char, int> hashMap;
+    const int n = S.length();
+    int count = 0;
+    
+    for(int i = 0; i < n; i++) {
+        hashMap[S[i]]++;
+    }
+    
+    for(auto i: hashMap) {
+        if(i.second % 2 != 0) {
+            count += 1;
+        }
+    }
+    
+    if(count == 0 || count == 1) {
+        return 1;
+    }
+    return 0;
+}
