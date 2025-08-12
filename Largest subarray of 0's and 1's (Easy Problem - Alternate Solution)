@@ -1,0 +1,18 @@
+class Solution:
+    def maxLen(self, arr):
+        # code here
+        n = len(arr)
+        sum = 0
+        hashMap = {0: -1}
+        length, maxLength = 0, 0
+        for i in range(n):
+            if arr[i] == 1:
+                sum += 1
+            elif arr[i] == 0:
+                sum += -1
+            if sum in hashMap:
+                length = i - hashMap[sum]
+                maxLength = max(length, maxLength)
+            if sum not in hashMap:
+                hashMap[sum] = i
+        return maxLength
