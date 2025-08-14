@@ -1,0 +1,19 @@
+class Solution:
+    def findMaxSubarraySum(self, arr, x):
+        # Your code goes here
+        n = len(arr)
+        i, j = 0, 1
+        tot = arr[i]
+        maxTot = 0
+        
+        # while i < n and j < n:
+        while i < n and j < n:
+            tot += arr[j]
+            if tot <= x:
+                maxTot = max(maxTot, tot)
+            elif tot > x:
+                tot -= arr[i]
+                i += 1
+            j += 1
+        
+        return maxTot
