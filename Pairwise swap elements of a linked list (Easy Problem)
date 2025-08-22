@@ -1,0 +1,35 @@
+"""  list Node is as defined below:
+
+class Node:
+    def __init__(self, data):
+		self.data = data
+		self.next = None
+
+"""
+
+# complete this function
+# return head of list after swapping
+class Solution:    
+    def pairWiseSwap(self, head):
+        # code here
+        if not head or not head.next:
+            return head
+        
+        temp = head.next
+        curr = head
+        prev = None
+        nxt = None
+        nnext = None
+        
+        while curr and curr.next:
+            nxt = curr.next
+            nnext = nxt.next
+            nxt.next = curr
+            curr.next = nnext
+            if prev:
+                prev.next = nxt
+            
+            prev = curr
+            curr = nnext
+        
+        return temp
