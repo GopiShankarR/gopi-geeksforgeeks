@@ -1,0 +1,30 @@
+# your task is to complete this function
+# Function should return an integer value
+# head1 denotes head node of 1st list
+# head2 denotes head node of 2nd list
+
+'''
+class node:
+    def __init__(self):
+        self.data = None
+        self.next = None
+'''
+
+class Solution:
+    def multiply_two_lists(self, first, second):
+        # Code here
+        
+        num1 = ""
+        num2 = ""
+        ptr = first
+        curr = second
+        
+        while ptr:
+            num1 += str(ptr.data)
+            ptr = ptr.next
+        
+        while curr:
+            num2 += str(curr.data)
+            curr = curr.next
+        
+        return (int(num1) * int(num2)) % 1000000007
