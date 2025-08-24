@@ -1,0 +1,55 @@
+'''
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+'''
+class Solution:
+    
+    def addTwoLists(self, head1, head2):
+        # code here
+        def reverse(head):
+            if head is None or head.next is None:
+                return head
+                
+            prev = None
+            curr = head
+            
+            while curr:
+                nxt = curr.next
+                curr.next = prev
+                prev = curr
+                curr = nxt
+            
+            return prev
+            
+        head_1 = reverse(head1)
+        head_2 = reverse(head2)
+        
+        carry = 0
+        head, tail = None, None
+        
+        while head_1 or head_2 or carry:
+            total1 = head_1.data if head_1 else 0
+            total2 = head_2.data if head_2 else 0
+            
+            total = total1 + total2 + carry
+            digit = total % 10
+            carry = total // 10
+            
+            if not head:
+                head = tail = Node(digit)
+            else:
+                tail.next = Node(digit)
+                tail = tail.next
+            
+            if head_1:
+                head_1 = head_1.next
+            if head_2:
+                head_2 = head_2.next
+            
+        temp = reverse(head)
+        if temp.data == 0:
+            temp = temp.next
+        
+        return temp
