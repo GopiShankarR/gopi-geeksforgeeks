@@ -1,0 +1,26 @@
+'''
+class Node:
+    def __init__(self, x):
+        self.data = x
+        self.next = None
+        self.random = None
+'''        
+class Solution:
+    def cloneLinkedList(self, head):
+        # code here
+        hashMap = {None: None}
+        
+        curr = head
+        while curr:
+            copy = Node(curr.data)
+            hashMap[curr] = copy 
+            curr = curr.next
+        
+        curr = head
+        while curr:
+            copy = hashMap[curr]
+            copy.next = hashMap[curr.next]
+            copy.random = hashMap[curr.random]
+            curr = curr.next
+        
+        return hashMap[head]
