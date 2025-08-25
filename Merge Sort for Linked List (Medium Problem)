@@ -1,0 +1,30 @@
+'''
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+'''
+
+class Solution:
+    #Function to sort the given linked list using Merge Sort.
+    def mergeSort(self, head):
+        # code here
+        arr = []
+        curr = head
+        
+        while curr:
+            arr.append(curr.data)
+            curr = curr.next
+        
+        arr.sort()
+        n = len(arr)
+        
+        curr = Node(0)
+        temp = curr
+        
+        for i in range(n):
+            newNode = Node(arr[i])
+            curr.next = newNode
+            curr = curr.next
+        
+        return temp.next
