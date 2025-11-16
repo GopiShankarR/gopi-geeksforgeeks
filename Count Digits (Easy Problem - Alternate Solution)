@@ -1,0 +1,6 @@
+import math
+
+class Solution:
+    def countDigits(self, n):
+    #  code here 
+        return int(math.log10(n) + 1)
